@@ -18,3 +18,17 @@ Route::get('/', '\App\Http\Controllers\PrincipalController@getViewPrincipal')->n
 Route::get('/sobrenos', '\App\Http\Controllers\SobrenosController@getViewSobrenos' )->name('site.sobrenos');
 
 Route::get('/contato', '\App\Http\Controllers\ContatoController@getViewContato' )->name('site.contato');
+Route::post('/contato', '\App\Http\Controllers\ContatoController@getViewContato' )->name('site.contato');
+
+Route::get('/login', function () { return "Página de login"; })->name('site.login');
+
+//app
+Route::prefix('app')->group( function () {
+    Route::get('/clientes', function () { return "Clientes"; })->name('app.clientes');
+    Route::get('/fornecedores', function () { return "Fornecedores"; })->name('app.fornecedores');
+    Route::get('/produtos', function () { return "Produtos"; })->name('app.produtos');
+});
+
+Route::fallback(function () {
+    return '<h2>Página não encontrada. <a href="'.route('site.principal').'">Clique aqui</a> para retornar a página principal.</h2>';
+});
