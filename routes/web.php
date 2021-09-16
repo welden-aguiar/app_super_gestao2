@@ -25,7 +25,7 @@ Route::get('/login', function () { return "Página de login"; })->name('site.log
 //app
 Route::prefix('app')->group( function () {
     Route::get('/clientes', function () { return "Clientes"; })->name('app.clientes');
-    Route::get('/fornecedores', function () { return "Fornecedores"; })->name('app.fornecedores');
+    Route::get('/fornecedores', '\App\Http\Controllers\FornecedorController@getViewFornecedor' )->name('app.fornecedores');
     Route::get('/produtos', function () { return "Produtos"; })->name('app.produtos');
 });
 
