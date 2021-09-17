@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', '\App\Http\Controllers\PrincipalController@getViewPrincipal')->name('site.principal');
-
 Route::get('/sobrenos', '\App\Http\Controllers\SobrenosController@getViewSobrenos' )->name('site.sobrenos');
-
 Route::get('/contato', '\App\Http\Controllers\ContatoController@getViewContato' )->name('site.contato');
-Route::post('/contato', '\App\Http\Controllers\ContatoController@getViewContato' )->name('site.contato');
-
+Route::post('/contato', '\App\Http\Controllers\ContatoController@salvar' )->name('site.contato');
 Route::get('/login', function () { return "Página de login"; })->name('site.login');
 
 //app

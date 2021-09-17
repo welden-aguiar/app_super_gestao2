@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\SiteContato;
+use App\Models\Fornecedor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SiteContatoFactory extends Factory
+class FornecedorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = SiteContato::class;
+    protected $model = Fornecedor::class;
 
     /**
      * Define the model's default state.
@@ -23,12 +23,10 @@ class SiteContatoFactory extends Factory
     {
         return [
             'nome' => $this->faker->name(),
-            'telefone' => $this->faker->tollFreePhoneNumber(),
+            'telefone' => $this->faker->bothify('##-#####-####'),
+            'site' => $this->faker->domainName(),
             'email' => $this->faker->freeEmail(),
-            'motivo_contato' => $this->faker->numberBetween(1,3),
-            'mensagem' => $this->faker->text(50),
+            'uf' => $this->faker->randomElement(['df', 'ba', 'sp', 'rj', 'ce', 'ma']),
         ];
     }
 }
-
-
